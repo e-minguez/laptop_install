@@ -1,0 +1,38 @@
+---
+# Atom
+- name: Get last Atom version
+  shell: "curl -s https://atom.io/download/rpm | grep -o -E 'href=\"([^\"#]+)\"'| cut -d'\"' -f2 | cut -d'?' -f1 | grep rpm"
+  register: atomurl
+
+- name: Install Atom text editor
+  dnf:
+    name: "{{ atomurl.stdout }}"
+    state: present
+  become: true
+
+- name: atom config folder
+  file:
+    path: "{{ ansible_user_dir }}/.atom/"
+    state: directory
+    mode: 0755
+
+- name: copy Atom config files
+  copy:
+    src: atom/config.cson
+    dest: "{{ ansible_user_dir }}/.atom/"
+    backup: yes
+
+#- name: Gather installed Atom packages
+#  command: apm ls -i -b -j
+#  register: atom_package_list
+#  changed_when: false
+
+#- name: Remove Atom packages
+#  command: apm remove {{ item }}
+#  with_items: "{{ atom_removed_packages }}"
+#  when: item in atom_package_list.stdout | regex_replace('^(\d+)@.*?$', '\\1')
+
+- name: Install Atom packages
+  command: apm install {{ item }}
+  with_items: "{{ atom_installed_packages }}"
+#  when: item not in atom_package_list.stdout | regex_replace('^(\d+)@.*?$', '\\1')

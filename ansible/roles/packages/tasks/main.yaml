@@ -1,0 +1,22 @@
+---
+- name: install packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ my_packages }}"
+  notify: yum-clean-metadata
+  become: true
+
+- name: Remove packages
+  dnf:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ removed_packages }}"
+  become: true
+
+- name: Update latest
+  dnf:
+    name: "*"
+    state: latest
+  notify: yum-clean-metadata
+  become: true

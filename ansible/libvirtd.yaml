@@ -1,0 +1,6 @@
+---
+- name: libvirtd
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - libvirtd

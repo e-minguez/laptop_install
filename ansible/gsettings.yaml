@@ -1,0 +1,6 @@
+---
+- name: gsettings
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - gsettings

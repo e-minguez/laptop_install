@@ -1,0 +1,6 @@
+---
+- name: paper-icons
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - paper-icons

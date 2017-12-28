@@ -1,0 +1,4 @@
+---
+- name: dconf_update
+  command: dconf update
+  become: true

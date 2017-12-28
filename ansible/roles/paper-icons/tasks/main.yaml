@@ -1,0 +1,19 @@
+---
+# Paper
+- name: add paper repo
+  get_url:
+    url: "{{ paperrepo }}"
+    dest: /etc/yum.repos.d/paper.repo
+  become: true
+
+- name: install paper-gtk-theme
+  dnf:
+    name: paper-gtk-theme
+    state: present
+  become: true
+
+- name: install paper-icon-theme
+  dnf:
+    name: paper-icon-theme
+    state: present
+  become: true

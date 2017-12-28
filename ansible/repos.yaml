@@ -1,0 +1,6 @@
+---
+- name: repos
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - repos

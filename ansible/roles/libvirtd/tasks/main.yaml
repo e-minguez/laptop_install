@@ -1,0 +1,55 @@
+---
+- name: install packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libvirt
+    - libvirt-python
+  become: true
+
+- name: allow user libvirt management permissions
+  template:
+    src: libvirt.pkla.j2
+    dest: /etc/polkit-1/localauthority/50-local.d/libvirt.pkla
+  become: true
+
+- name: stop libvirtd
+  service:
+    name: libvirtd
+    state: stopped
+  become: True
+
+- name: default storage pool
+  template:
+    src: pool.xml.j2
+    dest: /etc/libvirt/storage/default.xml
+  become: true
+
+- name: Create storage pool folder
+  file:
+    path: "{{ libvirt_pool_dir }}"
+    state: directory
+    mode: 0755
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+  become: true
+
+- name: start libvirtd
+  service:
+    name: libvirtd
+    state: started
+    enabled: yes
+  become: True
+
+- name: build storage pool
+  virt_pool:
+    command: build
+    name: '{{ libvirt_pool_name }}'
+  become: true
+
+#- name: start storage pool
+#  virt_pool:
+#    name: '{{ libvirt_pool_name }}'
+#    autostart: yes
+#  become: true

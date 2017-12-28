@@ -1,0 +1,23 @@
+atom_installed_packages:
+  - asciidoc-assistant
+  - asciidoc-image-helper
+  - asciidoc-preview
+  - autocomplete-ansible
+  - autocomplete-asciidoc
+  - busy-signal
+  - file-icons
+  - intentions
+  - language-ansible
+  - language-asciidoc
+  - linter
+  - linter-ansible-linting
+  - linter-ansible-syntax
+  - linter-checkbashisms
+  - linter-shellcheck
+  - linter-ui-default
+  - minimap
+  - open-bash-git
+  - solarized-dark-ui
+  - teletype
+
+atom_removed_packages:

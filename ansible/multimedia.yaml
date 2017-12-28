@@ -1,0 +1,6 @@
+---
+- name: multimedia
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - multimedia

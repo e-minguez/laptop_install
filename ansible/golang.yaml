@@ -1,0 +1,6 @@
+---
+- name: golang
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - golang

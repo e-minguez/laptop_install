@@ -1,0 +1,16 @@
+<pool type='dir'>
+  <name>{{ libvirt_pool_name }}</name>
+  <capacity unit='bytes'>0</capacity>
+  <allocation unit='bytes'>0</allocation>
+  <available unit='bytes'>0</available>
+  <source>
+  </source>
+  <target>
+    <path>{{ libvirt_pool_dir }}</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>{{ ansible_user_uid }}</owner>
+      <group>{{ ansible_user_gid }}</group>
+    </permissions>
+  </target>
+</pool>

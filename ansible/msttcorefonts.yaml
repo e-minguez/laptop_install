@@ -1,0 +1,6 @@
+---
+- name: msttcorefonts
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - msttcorefonts

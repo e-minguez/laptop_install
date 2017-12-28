@@ -1,0 +1,64 @@
+---
+# Dotfiles
+- name: ssh directory
+  file:
+    path: "{{ ansible_user_dir }}/.ssh/"
+    state: directory
+    mode: 0700
+
+- name: Disable wayland
+  ini_file: dest=/etc/gdm/custom.conf section=daemon option=WaylandEnable value=False backup=yes
+  become: True
+
+# qdbus --system org.freedesktop.Accounts /org/freedesktop/Accounts/User"$(id -u)"  org.freedesktop.Accounts.User.XSession
+
+- name: Enable xorg for user
+  command: gdbus call --system --dest org.freedesktop.Accounts --object-path /org/freedesktop/Accounts/User{{ ansible_user_uid }} --method org.freedesktop.Accounts.User.SetXSession "gnome-xorg"
+
+- name: Download gnomeshell-extensions-manage
+  dnf:
+    name: gnomeshell-extension-manage
+    state: present
+  become: true
+
+- name: Install gnomeshell-extensions
+  command: gnomeshell-extension-manage --install --system --extension-id {{ item }}
+  with_items:
+    "{{ my_extensions }}"
+
+- name: Enable some extensions
+  command: gnome-shell-extension-tool -e user-theme@gnome-shell-extensions.gcampax.github.com
+  ignore_errors: true
+
+- name: Argos directory
+  file:
+    path: "{{ ansible_user_dir }}/.config/argos"
+    state: directory
+    mode: 0755
+
+- name: Copy argos plugins
+  copy:
+    src: argos/
+    dest: "{{ ansible_user_dir }}/.config/argos/"
+
+- name: Create gdm config dir
+  file:
+    path: /etc/dconf/db/gdm.d/
+    state: directory
+    mode: 0755
+  become: true
+
+- name: Disable gdm list
+  copy:
+    src: 00-login-screen
+    dest: /etc/dconf/db/gdm.d/00-login-screen
+    mode: 0755
+  become: true
+
+- name: Apply dconf
+  copy:
+    src: gdm
+    dest: /etc/dconf/profile/gdm
+    mode: 0755
+  become: true
+  notify: dconf_update

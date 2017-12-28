@@ -1,0 +1,11 @@
+---
+# Firefox
+- name: Enable chrome-gnome-shell repo
+  command: dnf copr enable -y region51/chrome-gnome-shell
+  become: true
+
+- name: Install Chrome-gnome-shell
+  dnf:
+    name: chrome-gnome-shell
+    state: present
+  become: true

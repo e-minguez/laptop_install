@@ -1,0 +1,20 @@
+"*":
+  "asciidoc-preview": {}
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "welcome"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "solarized-light-syntax"
+    ]
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "linter-shellcheck":
+    shellcheckExecutablePath: "/usr/bin/shellcheck"
+  "linter-ui-default":
+    showPanel: true
+  minimap: {}

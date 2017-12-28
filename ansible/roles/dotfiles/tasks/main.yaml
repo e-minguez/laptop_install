@@ -1,0 +1,60 @@
+---
+# Dotfiles
+- name: ssh directory
+  file:
+    path: "{{ ansible_user_dir }}/.ssh/"
+    state: directory
+    mode: 0700
+
+- name: Config directories
+  file:
+    path: "{{ ansible_user_dir }}/.config/{{ item }}"
+    state: directory
+  with_items:
+    - terminator
+    - hexchat
+    - autostart
+    - powerline
+
+- name: Powerline config
+  copy:
+    src: powerline/config.json
+    dest: "{{ ansible_user_dir }}/.config/powerline/config.json"
+
+- name: Terminator config
+  copy:
+    src: terminator/config
+    dest: "{{ ansible_user_dir }}/.config/terminator/config"
+
+- name: vimrc
+  copy:
+    src: vim/.vimrc
+    dest: "{{ ansible_user_dir }}/.vimrc"
+
+- name: Hexchat config
+  copy:
+    src: hexchat/{{ item.src }}
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'hexchat.conf', dest: '{{ ansible_user_dir }}/.config/hexchat/hexchat.conf' }
+    - { src: 'servlist.conf', dest: '{{ ansible_user_dir }}/.config/hexchat/servlist.conf' }
+
+- name: Solarized theme for hexchat
+  unarchive:
+    src: https://dl.hexchat.net/themes/Solarized%20Light.hct
+    dest: "{{ ansible_user_dir }}/.config/hexchat/"
+    remote_src: yes
+
+- name: Bash customizations
+  copy:
+    src: bash/{{ item.src }}
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: '.bashrc', dest: '{{ ansible_user_dir }}/.bashrc' }
+    - { src: '.bash_logout', dest: '{{ ansible_user_dir }}/.bash_logout' }
+
+- name: krb5-auth-dialog
+  copy:
+    src: /usr/share/applications/krb5-auth-dialog.desktop
+    dest: "{{ ansible_user_dir }}/.config/autostart"
+    remote_src: Yes

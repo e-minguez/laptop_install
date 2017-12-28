@@ -1,0 +1,248 @@
+---
+
+- name: activitiesdir folder
+  file:
+    path: ~/.local/share/gnome-shell/extensions/
+    state: directory
+    mode: 0755
+
+- name: red fedora svg
+  copy:
+    src: images/Red_Fedora.svg
+    dest: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/"
+
+- name: install discover-session-dbus-address
+  dnf:
+    name: discover-session-dbus-address
+    state: present
+  become: true
+
+- name: gsettings antialiasing "rgba"
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.settings-daemon.plugins.xsettings antialiasing "rgba"
+
+- name: gsettings hinting "slight"
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.settings-daemon.plugins.xsettings hinting "slight"
+
+- name: gsettings gtk-theme 'Arc'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.interface gtk-theme 'Arc'
+
+- name: gsettings theme 'Arc'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.wm.preferences theme 'Arc'
+
+- name: gsettings name 'Arc-Dark'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.shell.extensions.user-theme name 'Arc-Dark'
+
+- name: gsettings cursor-theme 'Paper'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.interface cursor-theme 'Paper'
+
+- name: gsettings icon-theme 'Paper'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.interface icon-theme 'Paper'
+
+
+- name: gsettings display-line-numbers true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor display-line-numbers true
+
+- name: gsettings wrap-mode 'word'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor wrap-mode 'word'
+
+- name: gsettings auto-indent true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor auto-indent true
+
+- name: gsettings use-default-font true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor use-default-font true
+
+- name: gsettings scheme 'solarized-light'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor scheme 'solarized-light'
+
+- name: gsettings insert-spaces true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor insert-spaces true
+
+- name: gsettings bracket-matching true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor bracket-matching true
+
+- name: gsettings highlight-current-line true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor highlight-current-line true
+
+- name: gsettings tabs-size 2
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor tabs-size 2
+
+- name: gsettings background-pattern 'grid'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.gedit.preferences.editor background-pattern 'grid'
+
+
+- name: gsettings sidebar-width 220
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.nautilus.window-state sidebar-width 220
+
+- name: gsettings show-hidden-files true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.nautilus.preferences show-hidden-files true
+
+- name: gsettings sort-directories-first true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gtk.Settings.FileChooser sort-directories-first true
+
+- name: gsettings default-folder-viewer 'list-view'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+
+- name: gsettings start-with-location-bar true
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.nautilus.window-state start-with-location-bar true
+
+- name: gsettings default-visible-columns
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.nautilus.list-view default-visible-columns "['name', 'size', 'permissions', 'date_modified']"
+
+- name: gsettings download-updates false
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.software download-updates false
+
+- name: gsettings favorite-apps
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'hexchat.desktop', 'keepassx2.desktop', 'google-chrome.desktop', 'terminator.desktop', 'atom.desktop', 'spotify.desktop', 'telegramdesktop.desktop']"
+
+#- name: gsettings power active
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  set org.gnome.settings-daemon.plugins.power active
+
+- name: gsettings power-button-action 'nothing'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.settings-daemon.plugins.power power-button-action 'nothing'
+
+- name: gsettings idle-delay 300
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.session idle-delay 300
+
+- name: gsettings idle-activation-enabled 'true'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.screensaver idle-activation-enabled 'true'
+
+- name: gsettings lock-enabled 'true'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.screensaver lock-enabled 'true'
+
+- name: gsettings lock-delay 0
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.screensaver lock-delay 0
+
+
+#- name: gsettings first-start false
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  --schemadir {{ dropdowndir }} set #org.zzrough.gs-extensions.drop-down-terminal first-start false
+#
+#- name: gsettings shortcut-type 'other'
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  --schemadir {{ dropdowndir }} set #org.zzrough.gs-extensions.drop-down-terminal shortcut-type 'other'
+#
+#- name: gsettings other-shortcut Pause
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  --schemadir {{ dropdowndir }} set #org.zzrough.gs-extensions.drop-down-terminal other-shortcut '["Pause"]'
+
+
+- name: gsettings unit 'celsius'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather unit 'celsius'
+
+- name: gsettings pressure-unit 'hPa'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather pressure-unit 'hPa'
+
+- name: gsettings wind-speed-unit 'kph'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather wind-speed-unit 'kph'
+
+- name: gsettings position-in-panel 'center'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather position-in-panel 'center'
+
+
+- name: gsettings activities-config-button-icon-path
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config activities-config-button-icon-path {{ ansible_user_dir }}/.local/share/gnome-shell/extensions/Red_Fedora.svg
+
+- name: gsettings activities-config-button-no-icon
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config activities-config-button-no-icon false
+
+- name: gsettings activities-config-button-no-text
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config activities-config-button-no-text true
+
+- name: gsettings activities-icon-padding 0
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config activities-icon-padding 0
+
+- name: gsettings activities-text-padding 10
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config activities-text-padding 10
+
+- name: gsettings first-enable false
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config first-enable false
+
+- name: gsettings maximized-window-effect 0
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config maximized-window-effect 0

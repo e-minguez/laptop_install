@@ -1,0 +1,21 @@
+---
+- name: install msttcorefont prerrequisites
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - cabextract
+    - xorg-x11-font-utils
+    - fontconfig
+  become: true
+
+- name: Get last msttcorefont version
+  shell: "curl -s http://mscorefonts2.sourceforge.net/ | grep -Po https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-[0-9.]{3}-[0-9].noarch.rpm"
+  register: msttcorefonturl
+
+- name: Install msttcorefonts
+  dnf:
+    name: "{{ msttcorefonturl.stdout }}"
+    state: present
+  become: true

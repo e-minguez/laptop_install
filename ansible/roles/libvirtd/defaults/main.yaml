@@ -1,0 +1,2 @@
+libvirt_pool_dir: /storage/VMs
+libvirt_pool_name: default

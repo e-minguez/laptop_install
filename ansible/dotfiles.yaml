@@ -1,0 +1,6 @@
+---
+- name: dotfiles
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - dotfiles

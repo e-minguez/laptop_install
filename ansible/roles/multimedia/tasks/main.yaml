@@ -1,0 +1,13 @@
+---
+# Multimedia
+- name: add fedora-multimedia repo
+  get_url:
+    url: https://negativo17.org/repos/fedora-multimedia.repo
+    dest: /etc/yum.repos.d/fedora-multimedia.repo
+  become: true
+
+- name: install libdvdcss
+  dnf:
+    name: libdvdcss
+    state: present
+  become: true

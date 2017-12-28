@@ -1,0 +1,6 @@
+---
+- name: misc
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - misc
