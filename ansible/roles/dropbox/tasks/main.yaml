@@ -4,9 +4,9 @@
   dnf:
     name: "{{ item }}"
     state: present
-    with_items:
-      - dropbox
-      - nautilus-dropbox
+  with_items:
+    - dropbox
+    - nautilus-dropbox
   become: true
 
 - name: Start Dropbox
@@ -23,6 +23,15 @@
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
     state: link
+    mode: 0600
+  with_items:
+    - { src: '{{ ansible_user_dir }}/Dropbox/configs/.ssh/config', dest: '~/.ssh/config' }
+    - { src: '{{ ansible_user_dir }}/Dropbox/configs/.ssh/id_rsa', dest: '~/.ssh/id_rsa' }
+    - { src: '{{ ansible_user_dir }}/Dropbox/configs/.ssh/id_rsa.pub', dest: '~/.ssh/id_rsa.pub' }
+
+- name: SSH symlinks permissions
+  file:
+    path: '{{ item.src }}'
     mode: 0600
   with_items:
     - { src: '{{ ansible_user_dir }}/Dropbox/configs/.ssh/config', dest: '~/.ssh/config' }
