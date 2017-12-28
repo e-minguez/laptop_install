@@ -68,7 +68,11 @@ sudo cryptsetup luksChangeKey /dev/$(lsblk --fs -l | awk '/crypto_LUKS/ { print 
 
 Menu -> Add-ons -> Plugins and enable OpenH264 plugin
 
-* Reboot!
+* Configure all the accounts, etc. (like google account, kerberos, etc.)
+
+* Restore your backups
+
+* Relabel and reboot!
 
 ```
 sudo touch /.autorelabel
