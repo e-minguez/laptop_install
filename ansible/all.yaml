@@ -4,6 +4,7 @@
   gather_facts: yes
   roles:
     - repos
+    - dropbox
     - atom
     - bluejeans
     - chrome
