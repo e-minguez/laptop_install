@@ -2,7 +2,7 @@
 
 - name: activitiesdir folder
   file:
-    path: ~/.local/share/gnome-shell/extensions/
+    path: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/"
     state: directory
     mode: 0755
 
