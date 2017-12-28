@@ -31,18 +31,20 @@ Select the USB with the arrow keys and press *enter* to boot
 * Add ```inst.ks=<yourks_url>``` to the kernel line
 * Save and boot
 
-# Manual stuff
+# Process
+
+* Prerrequisites
+
+```
+$ sudo dnf install -y ansible git dnf-plugins-core libselinux-python
+$ mkdir -p ~/git
+$ git clone https://github.com/e-minguez/laptop_install.git ~/git/laptop_install
+```
 
 * Configure wifi connection:
 
 ```
 $ ./basic_network <ap> <password>
-```
-
-* Bootstrap the installation
-
-```
-$ ./bootstrap.sh
 ```
 
 * Edit [myvars.yaml](myvars.yaml) to fit your needs and run
