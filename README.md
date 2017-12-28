@@ -39,6 +39,7 @@ Select the USB with the arrow keys and press *enter* to boot
 $ sudo dnf install -y ansible git dnf-plugins-core libselinux-python
 $ mkdir -p ~/git
 $ git clone https://github.com/e-minguez/laptop_install.git ~/git/laptop_install
+$ cd ~/git/laptop_install
 ```
 
 * Configure wifi connection:
