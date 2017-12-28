@@ -51,7 +51,7 @@ $ ./basic_network <ap> <password>
 * Edit [myvars.yaml](myvars.yaml) to fit your needs and run
 
 ```
-$ ansible-playbook --ask-vault-pass -K -i inventory.yaml -e @myvars.yml ansible/all.yaml
+$ ansible-playbook --ask-vault-pass -K -i inventory.yaml -e @myvars.yaml ansible/all.yaml
 ```
 
 *NOTE:* The only protected file is [hexchat/servlist.conf](hexchat/servlist.conf)
