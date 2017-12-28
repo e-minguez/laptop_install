@@ -20,6 +20,15 @@
     state: stopped
   become: True
 
+- name: Create storage folder
+  file:
+    path: /etc/libvirt/storage
+    state: directory
+    mode: 0700
+    owner: root
+    group: root
+  become: true
+
 - name: default storage pool
   template:
     src: pool.xml.j2
@@ -42,11 +51,11 @@
     enabled: yes
   become: True
 
-- name: build storage pool
-  virt_pool:
-    command: build
-    name: '{{ libvirt_pool_name }}'
-  become: true
+#- name: build storage pool
+#  virt_pool:
+#    command: build
+#    name: '{{ libvirt_pool_name }}'
+#  become: true
 
 #- name: start storage pool
 #  virt_pool:

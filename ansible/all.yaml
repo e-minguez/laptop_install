@@ -12,9 +12,10 @@
     - golang
     - libvirtd
     - msttcorefonts
-    - packages
     - paper-icons
     - spotify
+    - multimedia
+    - packages
     - misc
     - gsettings
     - dotfiles
