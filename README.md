@@ -103,6 +103,7 @@ sudo reboot
 ## TO DO
 * Idempotent ansible roles
 * Single playbook instead small roles ?
+* Tests (shellcheck for bash? ansible lint?)
 
 ## References
 * https://github.com/myllynen/misc
