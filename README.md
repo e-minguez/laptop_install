@@ -4,36 +4,54 @@ including some dotfiles.
 
 Based on Fedora 27
 
-# Getting the OS
+## Getting the OS
 
 ```
 ./get_release.sh
 ```
 
-# Writing the iso to an USB
+## Writing the iso to an USB
 
 ```
 # Replace /dev/null with your drive
 sudo dd if=${ISO} of=/dev/null status=progress
 ```
 
-# Boot from pendrive
+## Kickstart
 
-## x230
-Press *enter* to about regular booting, then press *F12* to show
+Simple kickstart with just the minimum to get started. Modify as you see fit
+and upload it to some http server.
+
+I have mine uploaded to
+[github's gist](https://gist.github.com/e-minguez/988d9acb0632b3b6e99fa714ccd6a2df) and
+used a goo.gl [shortened version](https://goo.gl/rdaFBM) to avoid typing too much (use the raw version).
+
+## Boot from pendrive
+
+### Lenovo x230
+Press *enter* to abort regular booting, then press *F12* to show
 the boot menu.
 Select the USB with the arrow keys and press *enter* to boot
 
-# Modify the boot parameters to include kickstart
+### Others
+*F12* or *ESC* should work for almost any computer.
+
+## Modify the boot parameters to include kickstart
 
 * Select the regular boot option
 * Press *"e"* to edit the boot option
 * Add ```inst.ks=<yourks_url>``` to the kernel line
 * Save and boot
 
-# Process
+## Process
 
 * Prerrequisites
+
+```
+$ sh -c "$(curl -sSL https://raw.githubusercontent.com/e-minguez/laptop_install/master/bootstrap.sh)"
+```
+
+Or:
 
 ```
 $ sudo dnf install -y ansible git dnf-plugins-core libselinux-python
@@ -59,8 +77,11 @@ $ ansible-playbook --ask-vault-pass -K -i inventory.yaml -e @myvars.yaml ansible
 * Configure passwords
 
 ```
-passwd
+# Your password
+$ passwd
+# Root's password
 sudo passwd
+# Encrypted device password
 sudo cryptsetup luksChangeKey /dev/$(lsblk --fs -l | awk '/crypto_LUKS/ { print $1 }') -S 0
 ```
 
@@ -78,3 +99,7 @@ Menu -> Add-ons -> Plugins and enable OpenH264 plugin
 sudo touch /.autorelabel
 sudo reboot
 ```
+
+## TO DO
+* Idempotent ansible roles
+* Single playbook instead small roles ?
