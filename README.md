@@ -103,3 +103,6 @@ sudo reboot
 ## TO DO
 * Idempotent ansible roles
 * Single playbook instead small roles ?
+
+## References
+* https://github.com/myllynen/misc
