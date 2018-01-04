@@ -22,7 +22,7 @@
   become: true
 
 - name: Install gnomeshell-extensions
-  command: gnomeshell-extension-manage --install --system --extension-id {{ item }}
+  command: gnomeshell-extension-manage --install --extension-id {{ item }}
   with_items:
     "{{ my_extensions }}"
 
