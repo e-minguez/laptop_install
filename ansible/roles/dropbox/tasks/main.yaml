@@ -18,6 +18,12 @@
 - name: Enable autostart
   command: dropbox autostart y
 
+- name: ssh directory
+  file:
+    path: "{{ ansible_user_dir }}/.ssh/"
+    state: directory
+    mode: 0700
+
 - name: SSH symlinks
   file:
     src: '{{ item.src }}'
