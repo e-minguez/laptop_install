@@ -2,3 +2,4 @@
 dropdowndir: '/usr/share/gnome-shell/extensions/drop-down-terminal@gs-extensions.zzrough.org'
 openweather: '/usr/share/gnome-shell/extensions/openweather-extension@jenslody.de/schemas'
 activitiesdir: '/usr/share/gnome-shell/extensions/activities-config@nls1729/schemas/'
+topiconsdir: '/usr/share/gnome-shell/extensions/TopIcons@phocean.net/schemas'

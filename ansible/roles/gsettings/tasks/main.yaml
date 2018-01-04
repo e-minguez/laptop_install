@@ -246,3 +246,8 @@
   shell: |
     source /usr/bin/discover-session-dbus-address
     gsettings  --schemadir {{ activitiesdir }} set org.gnome.shell.extensions.activities-config maximized-window-effect 0
+
+- name: gsettings topicon right
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ topiconsdir }} set org.gnome.shell.extensions.topicons tray-pos 'right'
