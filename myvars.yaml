@@ -67,6 +67,7 @@ my_packages:
   - libvirt
   - libvirt-client
   - libvirt-daemon
+  - lm_sensors
   - meld
   - ModemManager
   - mosh
