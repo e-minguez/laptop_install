@@ -18,6 +18,9 @@
 - name: Enable autostart
   command: dropbox autostart y
 
+- pause:
+    prompt: "Do not continue until dropbox is configured"
+
 - name: ssh directory
   file:
     path: "{{ ansible_user_dir }}/.ssh/"
