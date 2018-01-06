@@ -251,3 +251,23 @@
   shell: |
     source /usr/bin/discover-session-dbus-address
     gsettings --schemadir {{ topiconsdir }} set org.gnome.shell.extensions.topicons tray-pos 'right'
+
+- name: gsettings battery percentage
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+- name: gsettings clock show date
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings set org.gnome.desktop.interface clock-show-date true
+
+- name: gsettings clock show seconds
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings set org.gnome.desktop.interface clock-show-seconds true
+
+- name: gsettings calendar show weekdate
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings set org.gnome.desktop.calendar show-weekdate true
