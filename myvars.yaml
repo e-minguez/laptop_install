@@ -93,6 +93,7 @@ my_packages:
   - qemu-img
   - qemu-kvm
   - rdesktop
+  - rpmrebuild
   - rsync
   - samba
   - samba-client
