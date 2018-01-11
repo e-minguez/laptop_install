@@ -107,3 +107,4 @@ sudo reboot
 
 ## References
 * https://github.com/myllynen/misc
+* https://www.reddit.com/r/ansible/comments/7pegi1/ansible_notebookdesktop_provisioning_do_you_know/
