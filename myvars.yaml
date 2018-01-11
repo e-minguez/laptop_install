@@ -54,6 +54,7 @@ my_packages:
   - jq
   - keepassx
   - kernel-devel
+  - kcli
   - krb5-auth-dialog
   - kubernetes-client
   - libcurl

@@ -39,3 +39,7 @@
 - name: Enable fedora-cisco-openh264
   command: dnf config-manager --set-enabled fedora-cisco-openh264
   become: true
+
+- name: Enable kcli repo
+  command: dnf copr enable -y karmab/kcli
+  become: true
