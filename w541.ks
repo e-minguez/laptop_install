@@ -54,9 +54,9 @@ clearpart --all --initlabel --drives=sda
 zerombr
 
 # Disk partitioning information
-part pv.0001 --fstype="lvmpv" --ondisk=sda --size=242973 --encrypted --passphrase="secreto123."
+part /boot --fstype="ext4" --ondisk=sda --size=200
 part /boot/efi --fstype="efi" --ondisk=sda --size=200 --fsoptions="defaults,uid=0,gid=0,umask=077,shortname=winnt"
-part /boot --fstype="ext4" --ondisk=sda --size=1024
+part pv.0001 --fstype="lvmpv" --ondisk=sda --size=242973 --encrypted --passphrase="secreto123." --grow
 volgroup vgroot --pesize=4096 pv.0001
 logvol /storage  --fstype="xfs" --size=92160 --name=storage --vgname=vgroot
 logvol swap --fstype="swap" --size=2048 --name=swap --vgname=vgroot
