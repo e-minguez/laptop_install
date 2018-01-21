@@ -61,4 +61,7 @@
     dest: /etc/dconf/profile/gdm
     mode: 0755
   become: true
-  notify: dconf_update
+
+- name: dconf_update
+  command: dconf update
+  become: true
