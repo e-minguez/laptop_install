@@ -22,13 +22,15 @@ sudo dd if=${ISO} of=/dev/null status=progress
 Simple kickstart with just the minimum to get started. Modify as you see fit
 and upload it to some http server.
 
-I have mine uploaded to
-[github's gist](https://gist.github.com/e-minguez/988d9acb0632b3b6e99fa714ccd6a2df) and
-used a goo.gl [shortened version](https://goo.gl/rdaFBM) to avoid typing too much (use the raw version).
+I have mines here and used a goo.gl shortened version to avoid typing too much
+(use the raw version).
+
+* [x230](https://goo.gl/wnSTeS)
+* [w541](https://goo.gl/dK7VqF)
 
 ## Boot from pendrive
 
-### Lenovo x230
+### Lenovo x230/w541
 Press *enter* to abort regular booting, then press *F12* to show
 the boot menu.
 Select the USB with the arrow keys and press *enter* to boot

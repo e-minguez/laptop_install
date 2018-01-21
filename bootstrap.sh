@@ -9,6 +9,4 @@ mkdir -p ${GITDIR}
 
 git clone ${REPOURL} ${GITREPO}
 
-echo "Edit ${GITREPO}/myvars.yaml to fit your needs"
-echo "Then run:"
-echo "ansible-playbook -K -i inventory.yaml -e @myvars.yml ansible/all.yaml"
+echo "Read the README.md file to continue"
