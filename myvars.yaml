@@ -73,6 +73,7 @@ my_packages:
   - ModemManager
   - mosh
   - mozilla-openh264
+  - nexcloud-client-nautilus
   - nmap
   - nmap-frontend
   - nmap-ncat
