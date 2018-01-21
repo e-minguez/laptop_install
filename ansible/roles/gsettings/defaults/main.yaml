@@ -2,4 +2,7 @@
 dropdowndir: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/drop-down-terminal@gs-extensions.zzrough.org'
 openweather: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/openweather-extension@jenslody.de/schemas'
 activitiesdir: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/activities-config@nls1729/schemas/'
+
 topiconsdir: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/TopIcons@phocean.net/schemas'
+
+horizontalspacing: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/status-area-horizontal-spacing@mathematical.coffee.gmail.com/schemas'

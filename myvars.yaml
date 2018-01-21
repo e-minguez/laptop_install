@@ -165,3 +165,5 @@ storage_driver: "overlay2"
 lvname: "dockerlv"
 lvmountpath: "/var/lib/docker"
 lvsize: "40G"
+
+openweathercities: "40.4933095,-3.8758396>Las Rozas>-1 && 40.656478,-4.7002172>Ávila>-1"

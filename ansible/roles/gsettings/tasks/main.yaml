@@ -142,7 +142,7 @@
 - name: gsettings favorite-apps
   shell: |
     source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'hexchat.desktop', 'keepassx2.desktop', 'google-chrome.desktop', 'terminator.desktop', 'atom.desktop', 'spotify.desktop', 'telegramdesktop.desktop']"
+    gsettings  set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'hexchat.desktop', 'google-chrome.desktop', 'terminator.desktop', 'atom.desktop', 'spotify.desktop']"
 
 #- name: gsettings power active
 #  shell: |
@@ -174,7 +174,7 @@
     source /usr/bin/discover-session-dbus-address
     gsettings  set org.gnome.desktop.screensaver lock-delay 0
 
-
+# It is not installed due to https://github.com/e-minguez/laptop_install/issues/2
 #- name: gsettings first-start false
 #  shell: |
 #    source /usr/bin/discover-session-dbus-address
@@ -204,13 +204,17 @@
 - name: gsettings wind-speed-unit 'kph'
   shell: |
     source /usr/bin/discover-session-dbus-address
-    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather wind-speed-unit 'kph'
+    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather wind-speed-unit 'kph'
 
 - name: gsettings position-in-panel 'center'
   shell: |
     source /usr/bin/discover-session-dbus-address
-    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather position-in-panel 'center'
+    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather position-in-panel 'center'
 
+- name: gsettings mycity
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather city '{{ openweathercities }}'
 
 - name: gsettings activities-config-button-icon-path
   shell: |
@@ -271,3 +275,8 @@
   shell: |
     source /usr/bin/discover-session-dbus-address
     gsettings set org.gnome.desktop.calendar show-weekdate true
+
+- name: gsettings horiziontal space
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ horizontalspacing }} set org.gnome.shell.extensions.status-area-horizontal-spacing hpadding 2
