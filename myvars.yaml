@@ -52,7 +52,7 @@ my_packages:
   - iotop
   - java-1.8.0-openjdk
   - jq
-  - keepassx
+  - keepassxc
   - kernel-devel
   - kcli
   - krb5-auth-dialog
