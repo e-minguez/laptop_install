@@ -106,6 +106,7 @@ my_packages:
   - strace
   - subversion
   - synergy
+  - ShellCheck
   - terminator
   - tigervnc
   - traceroute
