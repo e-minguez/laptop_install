@@ -53,8 +53,14 @@
     - { src: '.bashrc', dest: '{{ ansible_user_dir }}/.bashrc' }
     - { src: '.bash_logout', dest: '{{ ansible_user_dir }}/.bash_logout' }
 
-- name: krb5-auth-dialog
+- name: Autostart items
   copy:
-    src: /usr/share/applications/krb5-auth-dialog.desktop
+    src: /usr/share/applications/{{ item }}.desktop
     dest: "{{ ansible_user_dir }}/.config/autostart"
     remote_src: Yes
+  with_items:
+    - krb5-auth-dialog
+    - linphone
+    - dropbox
+    - Nextcloud
+    - autokey-gtk

@@ -6,6 +6,7 @@ my_packages:
   - ansible
   - arc-icon-theme
   - arc-theme-solid
+  - autokey-gtk
   - bind-utils
   - blueberry
   - calibre
@@ -68,6 +69,7 @@ my_packages:
   - libvirt
   - libvirt-client
   - libvirt-daemon
+  - linphone
   - lm_sensors
   - meld
   - ModemManager
