@@ -280,3 +280,9 @@
   shell: |
     source /usr/bin/discover-session-dbus-address
     gsettings --schemadir {{ horizontalspacing }} set org.gnome.shell.extensions.status-area-horizontal-spacing hpadding 2
+
+- name: gsettings windowoverlay icons
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-horizontal-alignment right
+    gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-vertial-alignment bottom

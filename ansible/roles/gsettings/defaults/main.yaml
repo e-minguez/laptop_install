@@ -6,3 +6,5 @@ activitiesdir: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/activ
 topiconsdir: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/TopIcons@phocean.net/schemas'
 
 horizontalspacing: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/status-area-horizontal-spacing@mathematical.coffee.gmail.com/schemas'
+
+windowoverlay: '{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/windowoverlay-icons@sustmidown.centrum.cz/schemas'
