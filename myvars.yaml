@@ -163,7 +163,7 @@ my_extensions:
   - "1176"
   - "442"
   - "1064"
-  - "320"
+  - "302"
 
 vg: "vghdd"
 storage_driver: "overlay2"
