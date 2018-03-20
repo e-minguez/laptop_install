@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Autostart
+GenericName=Autostart
+Comment=Autostart script
+Exec=autostart.sh
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true

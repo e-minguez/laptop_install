@@ -1,0 +1,6 @@
+---
+- name: scripts
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - scripts

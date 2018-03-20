@@ -9,14 +9,3 @@
   file:
     path: "{{ ansible_user_dir }}/go"
     state: directory
-
-- name: set Go environment variables
-  lineinfile:
-    dest: "{{ ansible_user_dir }}/.bash_profile"
-    state: present
-    line: "{{ item }}"
-    insertafter: EOF
-    backup: yes
-  with_items:
-    - 'export GOPATH=$HOME/go'
-    - 'export PATH=$GOPATH/bin:$PATH'
