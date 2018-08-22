@@ -57,6 +57,7 @@ my_packages:
   - kernel-devel
   - kcli
   - krb5-auth-dialog
+  - krb5-workstation
   - kubernetes-client
   - libcurl
   - libreoffice-calc
