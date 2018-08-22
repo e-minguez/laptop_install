@@ -7,5 +7,5 @@ dropbox autostart n
 sleep ${SLEEPTIME}
 dropbox start &
 linphone --iconified --no-video &
-nextcloud &
+#nextcloud &
 rm -f /home/edu/.config/autostart/dropbox.desktop
