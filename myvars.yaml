@@ -124,6 +124,7 @@ my_packages:
   - wget
   - wireshark-gtk
   - xz
+  - https://github.com/ramboxapp/community-edition/releases/download/0.5.17/Rambox-0.5.17-x64.rpm
 
 removed_packages:
   - gnome-terminal
