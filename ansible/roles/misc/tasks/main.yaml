@@ -6,14 +6,14 @@
     state: directory
     mode: 0700
 
-- name: Disable wayland
-  ini_file: dest=/etc/gdm/custom.conf section=daemon option=WaylandEnable value=False backup=yes
-  become: True
+#- name: Disable wayland
+#  ini_file: dest=/etc/gdm/custom.conf section=daemon option=WaylandEnable value=False backup=yes
+#  become: True
 
 # qdbus --system org.freedesktop.Accounts /org/freedesktop/Accounts/User"$(id -u)"  org.freedesktop.Accounts.User.XSession
 
-- name: Enable xorg for user
-  command: gdbus call --system --dest org.freedesktop.Accounts --object-path /org/freedesktop/Accounts/User{{ ansible_user_uid }} --method org.freedesktop.Accounts.User.SetXSession "gnome-xorg"
+#- name: Enable xorg for user
+#  command: gdbus call --system --dest org.freedesktop.Accounts --object-path /org/freedesktop/Accounts/User{{ ansible_user_uid }} --method org.freedesktop.Accounts.User.SetXSession "gnome-xorg"
 
 - name: Download gnomeshell-extensions-manage
   dnf:
@@ -22,7 +22,7 @@
   become: true
 
 - name: Install gnomeshell-extensions
-  command: gnomeshell-extension-manage --install --extension-id {{ item }}
+  command: gnomeshell-extension-manage --install --extension-id {{ item }} --version latest
   with_items:
     "{{ my_extensions }}"
 

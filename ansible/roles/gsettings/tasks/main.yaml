@@ -285,4 +285,4 @@
   shell: |
     source /usr/bin/discover-session-dbus-address
     gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-horizontal-alignment right
-    gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-vertial-alignment bottom
+    gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-vertical-alignment bottom

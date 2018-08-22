@@ -75,7 +75,7 @@ my_packages:
   - ModemManager
   - mosh
   - mozilla-openh264
-  - nexcloud-client-nautilus
+  - nextcloud-client-nautilus
   - nmap
   - nmap-frontend
   - nmap-ncat
@@ -165,10 +165,10 @@ my_extensions:
   - "1064"
   - "302"
 
-vg: "vghdd"
+vg: "t480s"
 storage_driver: "overlay2"
 lvname: "dockerlv"
 lvmountpath: "/var/lib/docker"
-lvsize: "40G"
+lvsize: "20G"
 
 openweathercities: "40.4933095,-3.8758396>Las Rozas>-1 && 40.656478,-4.7002172>Ávila>-1"
