@@ -169,6 +169,7 @@ my_extensions:
   - "442"
   - "1064"
   - "302"
+  - "964"
 
 vg: "t480s"
 storage_driver: "overlay2"
