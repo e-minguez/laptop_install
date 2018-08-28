@@ -95,6 +95,8 @@ my_packages:
   - privoxy
   - pykickstart
   - python2-pygpgme
+  - python2-openstackclient
+  - python2-virtualenv
   - qemu-img
   - qemu-kvm
   - rdesktop
