@@ -96,16 +96,19 @@ my_packages:
   - pykickstart
   - python2-pygpgme
   - python2-openstackclient
+  - python2-heatclient
   - python2-octaviaclient
   - python2-virtualenv
   - qemu-img
   - qemu-kvm
   - rdesktop
   - rpmrebuild
+  - ruby-devel
   - rsync
   - samba
   - samba-client
   - screen
+  - smplayer-themes
   - spotify-client
   - sshpass
   - sshuttle
