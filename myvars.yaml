@@ -28,6 +28,7 @@ my_packages:
   - flash-plugin
   - gconf-editor
   - gedit
+  - geteltorito
   - gftp
   - gimp
   - git
