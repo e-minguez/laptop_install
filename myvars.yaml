@@ -90,6 +90,7 @@ my_packages:
   - p7zip
   - p7zip-plugins
   - pavucontrol
+  - pcaro-hermit-fonts
   - pigz
   - powerline
   - powertop
