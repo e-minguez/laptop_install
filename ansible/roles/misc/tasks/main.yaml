@@ -41,6 +41,12 @@
     src: argos/
     dest: "{{ ansible_user_dir }}/.config/argos/"
 
+- name: Copy mac randomize config for NetworkManager
+  copy:
+    src: 00-macrandomize.conf
+    dest: /etc/NetworkManager/conf.d/00-macrandomize.conf
+  become: true
+
 - name: Create gdm config dir
   file:
     path: /etc/dconf/db/gdm.d/
