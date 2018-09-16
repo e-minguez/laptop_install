@@ -191,30 +191,30 @@
 #    gsettings  --schemadir {{ dropdowndir }} set #org.zzrough.gs-extensions.drop-down-terminal other-shortcut '["Pause"]'
 
 
-- name: gsettings unit 'celsius'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather unit 'celsius'
+#- name: gsettings unit 'celsius'
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather unit 'celsius'
 
-- name: gsettings pressure-unit 'hPa'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather pressure-unit 'hPa'
+#- name: gsettings pressure-unit 'hPa'
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings  --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather pressure-unit 'hPa'
 
-- name: gsettings wind-speed-unit 'kph'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather wind-speed-unit 'kph'
+#- name: gsettings wind-speed-unit 'kph'
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather wind-speed-unit 'kph'
 
-- name: gsettings position-in-panel 'center'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather position-in-panel 'center'
+#- name: gsettings position-in-panel 'center'
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather position-in-panel 'center'
 
-- name: gsettings mycity
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather city '{{ openweathercities }}'
+#- name: gsettings mycity
+#  shell: |
+#    source /usr/bin/discover-session-dbus-address
+#    gsettings --schemadir {{ openweather }} set org.gnome.shell.extensions.openweather city '{{ openweathercities }}'
 
 - name: gsettings activities-config-button-icon-path
   shell: |
