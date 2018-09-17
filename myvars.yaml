@@ -61,6 +61,7 @@ my_packages:
   - krb5-workstation
   - kubernetes-client
   - libcurl
+  - libguestfs-tools
   - libreoffice-calc
   - libreoffice-draw
   - libreoffice-gtk3
