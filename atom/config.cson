@@ -1,20 +1,47 @@
 "*":
   "asciidoc-preview": {}
+  "autocomplete-ansible":
+    pythonPaths: "/usr/bin/python3"
   core:
     autoHideMenuBar: true
     disabledPackages: [
       "welcome"
+      "autocomplete-css"
+      "background-tips"
+      "language-c"
+      "language-clojure"
+      "language-coffee-script"
+      "language-csharp"
+      "language-css"
+      "language-java"
+      "language-javascript"
+      "language-less"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-rust-bundled"
+      "language-sass"
+      "language-sql"
+      "language-typescript"
+      "metrics"
     ]
     telemetryConsent: "no"
     themes: [
-      "one-light-ui"
-      "solarized-light-syntax"
+      "gruvbox-dark-ui"
+      "gruvbox"
     ]
   editor:
+    fontSize: 13
     softWrap: true
     softWrapAtPreferredLineLength: true
+    tabType: "soft"
+  "linter-ansible-linting": {}
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/bin/shellcheck"
   "linter-ui-default":
     showPanel: true
   minimap: {}
+  "tree-view": {}

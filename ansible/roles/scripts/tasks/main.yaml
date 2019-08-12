@@ -4,22 +4,6 @@
     path: "{{ ansible_user_dir }}/bin"
     state: directory
 
-- name: Create ~/.config/autostart folder
-  file:
-    path: "{{ ansible_user_dir }}/.config/autostart"
-    state: directory
-
-- name: Add autostart.desktop
-  copy:
-    src: scripts/autostart.desktop
-    dest: "{{ ansible_user_dir }}/.config/autostart/"
-
-- name: Add autostart.sh
-  copy:
-    src: scripts/autostart.sh
-    dest: "{{ ansible_user_dir }}/bin/"
-    mode: 0755
-
 - name: Add extractrpm
   copy:
     src: scripts/extractrpm

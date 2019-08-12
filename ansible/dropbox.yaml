@@ -1,6 +1,0 @@
----
-- name: dropbox
-  hosts: localhost
-  gather_facts: yes
-  roles:
-    - dropbox

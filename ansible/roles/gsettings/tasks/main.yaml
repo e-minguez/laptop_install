@@ -27,32 +27,6 @@
     source /usr/bin/discover-session-dbus-address
     gsettings  set org.gnome.settings-daemon.plugins.xsettings hinting "slight"
 
-- name: gsettings gtk-theme 'Arc'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.desktop.interface gtk-theme 'Arc'
-
-- name: gsettings theme 'Arc'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.desktop.wm.preferences theme 'Arc'
-
-- name: gsettings name 'Arc-Dark'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.shell.extensions.user-theme name 'Arc-Dark'
-
-- name: gsettings cursor-theme 'Paper'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.desktop.interface cursor-theme 'Paper'
-
-- name: gsettings icon-theme 'Paper'
-  shell: |
-    source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.desktop.interface icon-theme 'Paper'
-
-
 - name: gsettings display-line-numbers true
   shell: |
     source /usr/bin/discover-session-dbus-address
@@ -103,7 +77,6 @@
     source /usr/bin/discover-session-dbus-address
     gsettings  set org.gnome.gedit.preferences.editor background-pattern 'grid'
 
-
 - name: gsettings sidebar-width 220
   shell: |
     source /usr/bin/discover-session-dbus-address
@@ -142,7 +115,7 @@
 - name: gsettings favorite-apps
   shell: |
     source /usr/bin/discover-session-dbus-address
-    gsettings  set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'hexchat.desktop', 'google-chrome.desktop', 'terminator.desktop', 'atom.desktop', 'spotify.desktop']"
+    gsettings  set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'google-chrome.desktop', 'terminator.desktop', 'atom.desktop']"
 
 #- name: gsettings power active
 #  shell: |

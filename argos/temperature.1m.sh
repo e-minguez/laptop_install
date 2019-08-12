@@ -1,18 +1,24 @@
-HASS="http://192.168.1.2:8123"
-CURL="curl -s -X GET -H 'Content-Type: application/json' ${HASS}/api/states"
+HASS="http://192.168.1.99:8123"
+TOKEN="xxx"
+PARAMETERS="-s -X GET -H 'Content-Type: application/json'"
+CURL="/usr/bin/curl"
 
-curl --connect-timeout 1 -s http://192.168.1.2:8123/api/ | grep -q "running"
+${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" --connect-timeout 1 ${HASS}/api/ | grep -q "running"
 
 if [ $? -eq 0 ]
 then
-  TI=$(${CURL}/sensor.temperature | jq -r '.state')
-  TO=$(${CURL}/sensor.temperature_outside | jq -r '.state')
-  HO=$(${CURL}/sensor.humidity_outside | jq -r '.state')
+  TC=$(${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" ${HASS}/api/states/sensor.temperatura_casa | jq -r '.state')
+  TF=$(${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" ${HASS}/api/states/sensor.temperatura_fuera | jq -r '.state')
+  HF=$(${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" ${HASS}/api/states/sensor.humedad_fuera | jq -r '.state')
+  TABAJO=$(${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" ${HASS}/api/states/sensor.temperatura_abajo | jq -r '.state')
+  TARRIBA=$(${CURL} ${PARAMETERS} -H "Authorization: Bearer ${TOKEN}" ${HASS}/api/states/sensor.temperatura_arriba | jq -r '.state')
 
-  echo "${TI}º |"
+  echo "${TC}º |"
   echo "---"
-  echo "${TO}º outside"
-  echo "${HO}% humidity outside"
+  echo "${TF}º fuera"
+  echo "${HF}% humedad fuera"
+  echo "${TABAJO}º abajo"
+  echo "${TARRIBA}º arriba"
 else
   echo "X |"
   echo "---"

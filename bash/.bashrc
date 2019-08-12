@@ -30,28 +30,14 @@ if [ -f `which powerline-daemon` ]; then
   . /usr/share/powerline/bash/powerline.sh
 fi
 
-# Vagrant stuff
-export VAGRANT_DEFAULT_PROVIDER=libvirt
-export VAGRANT_HOME=/storage/vagrant
-
-alias dockerclean='docker rm -v $(docker ps -a -q -f status=exited) ; docker rmi $(docker images -f "dangling=true" -q) ; docker volume rm $(docker volume ls -qf dangling=true)'
-alias dockercleanup='docker rm -v $(docker ps -a -q -f status=exited)'
-alias dockerimagesdf='docker images | awk '\''/MB/ { SUM += $7 } END { print SUM }'\'''
-alias dockerimagescleanup='docker rmi $(docker images -f "dangling=true" -q)'
-alias dockervolumescleanup='docker volume rm $(docker volume ls -qf dangling=true)'
-alias dockerupdate='docker images | grep -v REPOSITORY | awk '\''{print $1}'\'' | xargs -L1 docker pull'
-
-
 alias sl=ls
 alias mdkir=mkdir
 alias soruce=source
 alias souce=source
 
 # Short things are better
-
-alias v=vagrant
 alias g=git
-alias d=docker
+alias k=kubectl
 
 # Short things are better (git)
 alias gs='git show --pretty=oneline'
@@ -94,6 +80,5 @@ validate_erb() {
   }
 
 alias updateatom="wget -O /tmp/atom.rpm https://atom.io/download/rpm && pkexec dnf update -y /tmp/atom.rpm && rm /tmp/atom.rpm && apm update -c false"
-alias dockviz="docker run -it --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
 
 shopt -s checkwinsize

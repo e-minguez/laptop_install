@@ -12,8 +12,6 @@
     state: directory
   with_items:
     - terminator
-    - hexchat
-    - autostart
     - powerline
 
 - name: Powerline config
@@ -31,20 +29,6 @@
     src: vim/.vimrc
     dest: "{{ ansible_user_dir }}/.vimrc"
 
-- name: Hexchat config
-  copy:
-    src: hexchat/{{ item.src }}
-    dest: "{{ item.dest }}"
-  with_items:
-    - { src: 'hexchat.conf', dest: '{{ ansible_user_dir }}/.config/hexchat/hexchat.conf' }
-    - { src: 'servlist.conf', dest: '{{ ansible_user_dir }}/.config/hexchat/servlist.conf' }
-
-- name: Solarized theme for hexchat
-  unarchive:
-    src: https://dl.hexchat.net/themes/Solarized%20Light.hct
-    dest: "{{ ansible_user_dir }}/.config/hexchat/"
-    remote_src: yes
-
 - name: Bash customizations
   copy:
     src: bash/{{ item.src }}
@@ -53,15 +37,3 @@
     - { src: '.bashrc', dest: '{{ ansible_user_dir }}/.bashrc' }
     - { src: '.bash_logout', dest: '{{ ansible_user_dir }}/.bash_logout' }
     - { src: '.bash_profile', dest: '{{ ansible_user_dir }}/.bash_profile' }
-
-#- name: Autostart items
-#  copy:
-#    src: /usr/share/applications/{{ item }}.desktop
-#    dest: "{{ ansible_user_dir }}/.config/autostart"
-#    remote_src: Yes
-#  with_items:
-#    - krb5-auth-dialog
-#    - linphone
-#    - dropbox
-#    - nextcloud
-#    - autokey-gtk
