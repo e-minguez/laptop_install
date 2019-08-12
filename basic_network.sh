@@ -11,6 +11,7 @@ nmcli connection add con-name ${CONNAME} \
   ifname ${DEVICE} type wifi ssid ${AP}
 nmcli con modify ${CONNAME} wifi-sec.key-mgmt ${CIPHER}
 nmcli con modify ${CONNAME} wifi-sec.psk ${PASSWORD}
+nmcli con modify ${CONNAME} 802-11-wireless.cloned-mac-address permanent
 nmcli radio wifi on
 nmcli con down ${CONNAME}
 nmcli con up ${CONNAME}
