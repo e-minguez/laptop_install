@@ -1,0 +1,6 @@
+---
+- name: tuned
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - tuned
