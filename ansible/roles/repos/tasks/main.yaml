@@ -20,12 +20,18 @@
 
 - name: Enable eminguez repo
   command: dnf copr enable -y eminguez/eminguez-RPMs
+  creates: /etc/yum.repos.d/_copr_eminguez-eminguez-RPMs.repo
   become: true
 
-- name: Enable fedora-cisco-openh264
-  command: dnf config-manager --set-enabled fedora-cisco-openh264
+- name: Enable fedora-cisco-openh264 repository
+  ini_file:
+    path: /etc/yum.repos.d/fedora-cisco-openh264.repo
+    section: fedora-cisco-openh264
+    option: enabled
+    value: 1
   become: true
 
 - name: Enable kcli repo
   command: dnf copr enable -y karmab/kcli
+  creates: /etc/yum.repos.d/_copr_karmab-kcli.repo
   become: true
