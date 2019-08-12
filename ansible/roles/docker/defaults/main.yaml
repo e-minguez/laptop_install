@@ -1,6 +1,0 @@
-device: "/dev/vdb"
-vg: "docker_vol"
-storage_driver: "overlay2"
-lvname: "dockerlv"
-lvmountpath: "/var/lib/docker"
-lvsize: "100%FREE"

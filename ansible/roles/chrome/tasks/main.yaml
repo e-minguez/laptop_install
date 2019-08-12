@@ -1,7 +1,21 @@
 ---
 # Chrome
-- name: Install Google Chrome
+- name: Install Fedora Workstation Repositories package
   dnf:
-    name: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-    state: present
+    name: fedora-workstation-repositories
+    state: latest
+  become: true
+
+- name: Enable Google Chrome repository
+  ini_file:
+    path: /etc/yum.repos.d/google-chrome.repo
+    section: google-chrome
+    option: enabled
+    value: 1
+  become: true
+
+- name: Install Google Chrome package
+  dnf:
+    name: google-chrome
+    state: latest
   become: true

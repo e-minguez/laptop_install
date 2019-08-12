@@ -1,11 +1,5 @@
 ---
 # Repo
-- name: Add zhonghuaren repo
-  get_url:
-    url: https://download.opensuse.org/repositories/home:/zhonghuaren/{{ ansible_distribution }}_{{ ansible_distribution_version }}/home:zhonghuaren.repo
-    dest: /etc/yum.repos.d/zhonghuaren.repo
-  become: true
-
 - name: Install Rpmfusion Free repos
   dnf:
     name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
@@ -24,16 +18,8 @@
     state: present
   become: true
 
-- name: Enable hack-fonts repo
-  command: dnf copr enable -y heliocastro/hack-fonts
-  become: true
-
 - name: Enable eminguez repo
   command: dnf copr enable -y eminguez/eminguez-RPMs
-  become: true
-
-- name: Enable user501254 repo
-  command: dnf copr enable -y user501254/Arc
   become: true
 
 - name: Enable fedora-cisco-openh264

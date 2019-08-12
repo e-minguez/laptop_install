@@ -1,6 +1,0 @@
----
-- name: docker
-  hosts: localhost
-  gather_facts: yes
-  roles:
-    - docker
