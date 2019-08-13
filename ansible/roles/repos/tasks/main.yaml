@@ -12,17 +12,6 @@
     state: present
   become: true
 
-- name: Install Adobe repos
-  dnf:
-    name: http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    state: present
-  become: true
-
-- name: Enable eminguez repo
-  command: dnf copr enable -y eminguez/eminguez-RPMs
-  creates: /etc/yum.repos.d/_copr_eminguez-eminguez-RPMs.repo
-  become: true
-
 - name: Enable fedora-cisco-openh264 repository
   ini_file:
     path: /etc/yum.repos.d/fedora-cisco-openh264.repo
@@ -31,7 +20,28 @@
     value: 1
   become: true
 
+- name: Install Adobe repos
+  dnf:
+    name: http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+    state: present
+  become: true
+
+- name: Enable eminguez repo
+  command: dnf copr enable -y eminguez/eminguez-RPMs
+  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:eminguez:eminguez-RPMs.repo
+  become: true
+
 - name: Enable kcli repo
   command: dnf copr enable -y karmab/kcli
-  creates: /etc/yum.repos.d/_copr_karmab-kcli.repo
+  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:karmab:kcli.repo
+  become: true
+
+- name: Enable flat-remix repo
+  command: dnf copr enable -y daniruiz/flat-remix
+  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:daniruiz:flat-remix.repo
+  become: true
+
+- name: Enable tripledes repo
+  command: dnf copr enable -y tripledes/fedora-rpms
+  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:tripledes:fedora-rpms.repo
   become: true

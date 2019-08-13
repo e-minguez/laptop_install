@@ -259,3 +259,18 @@
     source /usr/bin/discover-session-dbus-address
     gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-horizontal-alignment right
     gsettings --schemadir {{ windowoverlay }} set org.gnome.shell.extensions.windowoverlay-icons icon-vertical-alignment bottom
+
+- name: gsettings gtk-theme 'Flat-Remix-GTK-Yellow-Darker'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Yellow-Darker'
+
+- name: gsettings name 'Flat-Remix-Miami-fullPanel'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.shell.extensions.user-theme name 'Flat-Remix-Miami-fullPanel'
+
+- name: gsettings icon-theme 'Flat-Remix-Red'
+  shell: |
+    source /usr/bin/discover-session-dbus-address
+    gsettings  set org.gnome.desktop.interface icon-theme 'Flat-Remix-Red'

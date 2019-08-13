@@ -4,8 +4,6 @@ my_packages:
   - alsa-plugins-pulseaudio
   - android-tools
   - ansible
-  - arc-icon-theme
-  - arc-theme-solid
   - bind-utils
   - blueberry
   - calibre
@@ -23,6 +21,9 @@ my_packages:
   - firefox
   - flac-libs
   - flash-plugin
+  - flat-remix
+  - flat-remix-gtk
+  - flat-remix-gnome
   - gconf-editor
   - gedit
   - geteltorito
