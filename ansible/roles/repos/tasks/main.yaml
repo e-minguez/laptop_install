@@ -28,20 +28,24 @@
 
 - name: Enable eminguez repo
   command: dnf copr enable -y eminguez/eminguez-RPMs
-  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:eminguez:eminguez-RPMs.repo
   become: true
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:eminguez:eminguez-RPMs.repo
 
 - name: Enable kcli repo
   command: dnf copr enable -y karmab/kcli
-  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:karmab:kcli.repo
   become: true
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:karmab:kcli.repo
 
 - name: Enable flat-remix repo
   command: dnf copr enable -y daniruiz/flat-remix
-  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:daniruiz:flat-remix.repo
   become: true
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:daniruiz:flat-remix.repo
 
 - name: Enable tripledes repo
   command: dnf copr enable -y tripledes/fedora-rpms
-  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:tripledes:fedora-rpms.repo
   become: true
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:tripledes:fedora-rpms.repo
