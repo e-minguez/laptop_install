@@ -1,0 +1,55 @@
+{
+  "builders":
+  [
+    {
+      "type": "qemu",
+      "accelerator": "kvm",
+      "headless": false,
+      "qemuargs": [
+        [ "-m", "4096M" ],
+        [ "-smp", "cpus=1,maxcpus=16,cores=4" ]
+      ],
+      "disk_interface": "virtio-scsi",
+      "disk_size": 500000,
+      "format": "qcow2",
+      "net_device": "virtio-net",
+
+      "iso_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-netinst-x86_64-30-1.2.iso",
+      "iso_checksum": "28c94f90adc926ea035d56f5bf59058a9305566adb70c0c50d7a13fc6ab838cf",
+      "iso_checksum_type": "sha256",
+
+      "vm_name": "fedora-30-x230",
+      "output_directory": "fedora-30-x230",
+
+      "http_directory": "./",
+      "http_port_min": 10082,
+      "http_port_max": 10089,
+
+      "ssh_host_port_min": 2222,
+      "ssh_host_port_max": 2229,
+
+      "ssh_username": "root",
+      "ssh_password": "secreto123.",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "1200s",
+
+      "boot_wait": "20s",
+      "boot_command": [
+        "<up><wait><tab><wait> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/x230.ks<enter><wait>"
+      ],
+
+      "shutdown_command": "shutdown -h 60",
+      "shutdown_timeout": "61m"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+          "sleep 3600",
+          "sh -c '$(curl -sSL https://raw.githubusercontent.com/e-minguez/laptop_install/master/bootstrap.sh)'",
+          "ansible-playbook -i ~/git/laptop_install/inventory -e @~/git/laptop_install/myvars.yaml ~/git/laptop_install/ansible/all.yaml"
+      ]
+    }
+  ]
+}

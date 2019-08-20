@@ -1,3 +1,5 @@
 *.retry
 *CHECKSUM
 *.iso
+packer/packer_cache/
+packer/fedora-30-x230/
