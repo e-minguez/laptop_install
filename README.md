@@ -120,6 +120,19 @@ $ sudo touch /.autorelabel
 $ sudo reboot
 ```
 
+## Local testing
+Packer is used to create a VM simulating the different environments
+
+### x230
+
+```
+$ cd packer/
+$ PACKER_LOG=1 packerio build fedora-30-x230.json
+```
+
+### t480s
+TO DO
+
 ## TO DO
 * Idempotent ansible roles
 * Single playbook instead small roles ?
