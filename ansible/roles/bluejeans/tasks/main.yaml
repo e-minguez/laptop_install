@@ -1,7 +1,7 @@
 ---
 # Bluejeans
 - name: Get last bluejeans version
-  shell: "curl -s https://support.bluejeans.com/knowledge/app-large-deployment | grep -o -E 'href=\"([^\"#]+)\"'| cut -d'\"' -f2 | grep rpm"
+  shell: "curl -s https://www.bluejeans.com/downloads#desktop | grep -o -E 'href=\"([^\"#]+)\"'| cut -d'\"' -f2 | grep 'rpm$'"
   register: bluejeansurl
 
 - name: Install Bluejeans

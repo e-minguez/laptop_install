@@ -1,4 +1,5 @@
 ---
+ansible_python_interpreter: auto
 my_packages:
   - alien
   - alsa-plugins-pulseaudio
@@ -74,7 +75,6 @@ my_packages:
   - mozilla-openh264
   - nextcloud-client-nautilus
   - nmap
-  - nmap-frontend
   - nmap-ncat
   - ntfsprogs
   - numix-icon-theme
@@ -119,9 +119,9 @@ my_packages:
   - virt-manager
   - vlc
   - wget
-  - wireshark-gtk
+  - wireshark
   - xz
-  - https://github.com/ramboxapp/community-edition/releases/download/0.6.9/Rambox-0.6.9-linux-x86_64.rpm
+#  - https://github.com/ramboxapp/community-edition/releases/download/0.6.9/Rambox-0.6.9-linux-x86_64.rpm
 
 removed_packages:
   - gnome-terminal

@@ -64,6 +64,10 @@ logvol /home  --fstype="ext4" --size=500 --grow --name=home --vgname=vg-fedora
 
 %packages
 chrony
+ansible
+git
+dnf-plugins-core
+libselinux-python
 @core
 @c-development
 @development-tools

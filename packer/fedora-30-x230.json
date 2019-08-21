@@ -31,7 +31,7 @@
       "ssh_username": "root",
       "ssh_password": "secreto123.",
       "ssh_port": 22,
-      "ssh_wait_timeout": "1200s",
+      "ssh_wait_timeout": "3200s",
 
       "boot_wait": "20s",
       "boot_command": [
@@ -47,7 +47,7 @@
       "type": "shell",
       "inline": [
           "sleep 3600",
-          "sh -c '$(curl -sSL https://raw.githubusercontent.com/e-minguez/laptop_install/master/bootstrap.sh)'",
+          "sh -c \"$(curl -sSL https://raw.githubusercontent.com/e-minguez/laptop_install/master/bootstrap.sh)\"",
           "ansible-playbook -i ~/git/laptop_install/inventory -e @~/git/laptop_install/myvars.yaml ~/git/laptop_install/ansible/all.yaml"
       ]
     }

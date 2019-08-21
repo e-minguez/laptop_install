@@ -25,9 +25,6 @@ and upload it to some http server.
 I have mines here and used a goo.gl shortened version to avoid typing too much
 (use the raw version).
 
-* [x230](https://goo.gl/wnSTeS)
-* [w541](https://goo.gl/dK7VqF)
-
 ## Boot from pendrive
 
 ### Lenovo x230/w541
@@ -71,20 +68,41 @@ $ ./basic_network <ap> <password>
 * Edit [myvars.yaml](myvars.yaml) to fit your needs and run
 
 ```
-$ ansible-playbook --ask-vault-pass -K -i inventory -e @myvars.yaml ansible/all.yaml
+$ ansible-playbook -i inventory -e @myvars.yaml ansible/all.yaml
 ```
 
-*NOTE:* The only protected file is [hexchat/servlist.conf](hexchat/servlist.conf)
-
-* Configure passwords
+* Configure your password:
 
 ```
-# Your password
 $ passwd
-# Root's password
-sudo passwd
-# Encrypted device password
-sudo cryptsetup luksChangeKey /dev/$(lsblk --fs -l | awk '/crypto_LUKS/ { print $1 }') -S 0
+```
+
+* Root's password
+```
+$ sudo passwd
+```
+
+* Encrypted device password
+
+```
+$ sudo cryptsetup luksChangeKey /dev/$(lsblk --fs -l | awk '/crypto_LUKS/ { print $1 }') -S 0
+```
+
+* Restore cryptoluks password prompt (as root)
+
+```
+$ sudo mv /etc/default/grub{.old,}
+$ sudo mv /etc/crypttab{.old,}
+$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+$ sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+$ sudo dracut -f --regenerate-all
+$ sudo rm -f /boot/keyfile
+```
+
+* Disable passwordless sudo:
+
+```
+# rm -f /etc/sudoers.d/wheel
 ```
 
 * Configure Firefox
@@ -98,8 +116,8 @@ Menu -> Add-ons -> Plugins and enable OpenH264 plugin
 * Relabel and reboot!
 
 ```
-sudo touch /.autorelabel
-sudo reboot
+$ sudo touch /.autorelabel
+$ sudo reboot
 ```
 
 ## TO DO

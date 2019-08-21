@@ -17,7 +17,7 @@
     path: /etc/yum.repos.d/fedora-cisco-openh264.repo
     section: fedora-cisco-openh264
     option: enabled
-    value: 1
+    value: "1"
   become: true
 
 - name: Install Adobe repos
