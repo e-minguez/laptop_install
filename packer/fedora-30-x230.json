@@ -38,15 +38,14 @@
         "<up><wait><tab><wait> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/x230.ks<enter><wait>"
       ],
 
-      "shutdown_command": "shutdown -h 60",
-      "shutdown_timeout": "61m"
+      "shutdown_command": "shutdown -h now",
+      "shutdown_timeout": "1m"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
       "inline": [
-          "sleep 3600",
           "sh -c \"$(curl -sSL https://raw.githubusercontent.com/e-minguez/laptop_install/master/bootstrap.sh)\"",
           "ansible-playbook -i ~/git/laptop_install/inventory -e @~/git/laptop_install/myvars.yaml ~/git/laptop_install/ansible/all.yaml"
       ]

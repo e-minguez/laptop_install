@@ -1,13 +1,8 @@
 ---
 - name: install msttcorefont prerrequisites
   dnf:
-    name: "{{ item }}"
+    name: "['curl', 'cabextract', 'xorg-x11-font-utils', 'fontconfig']"
     state: present
-  with_items:
-    - curl
-    - cabextract
-    - xorg-x11-font-utils
-    - fontconfig
   become: true
 
 - name: Get last msttcorefont version
