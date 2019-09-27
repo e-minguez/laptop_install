@@ -2,7 +2,7 @@
 Those are my personal playbooks and scripts to install a laptop from scratch
 including some dotfiles.
 
-Based on Fedora 27
+Based on Fedora 30
 
 ## Getting the OS
 
