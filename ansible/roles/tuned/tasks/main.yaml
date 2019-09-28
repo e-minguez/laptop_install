@@ -1,0 +1,32 @@
+---
+- name: Install tuned
+  dnf:
+    name: tuned
+    state: present
+  become: true
+
+- name: start tuned daemon
+  service:
+    name: tuned
+    state: started
+    enabled: yes
+  become: true
+
+- name: check if {{ custom_tuned_profile_name }} profile exists
+  stat:
+    path: /etc/tuned/{{ custom_tuned_profile_name }}
+  register: profile
+
+- name: Run powertop2tuned
+  command: powertop2tuned -e {{ custom_tuned_profile_name }}
+  when: profile.stat.exists == false
+  become: true
+
+- name: Check current profile
+  command: tuned-adm active
+  register: active_profile
+
+- name: Enable {{ custom_tuned_profile_name }} profile
+  command: tuned-adm profile {{ custom_tuned_profile_name }}
+  when: '{{ custom_tuned_profile_name }} not in active_profile.stdout'
+  become: true
