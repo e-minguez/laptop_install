@@ -112,6 +112,7 @@ my_packages:
   - transmission-gtk
   - tree
   - tuned
+  - tuned-utils
   - unrar
   - unzip
   - upower
@@ -153,3 +154,5 @@ my_extensions:
   - "302"
 
 openweathercities: "40.4933095,-3.8758396>Las Rozas>-1 && 40.656478,-4.7002172>Ávila>-1"
+
+custom_tuned_profile_name: "powertop2tuned"
